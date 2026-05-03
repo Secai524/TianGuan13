@@ -1,76 +1,63 @@
-## Nova Sector (/tg/station Downstream)
+# 天关源码（Nova Sector 下游）
 
-[![CI Suite](https://github.com/NovaSector/NovaSector/workflows/CI%20Suite/badge.svg)](https://github.com/NovaSector/NovaSector/actions?query=workflow%3A%22CI+Suite%22)
-[![Percentage of issues still open](https://isitmaintained.com/badge/open/NovaSector/NovaSector.svg)](https://isitmaintained.com/project/NovaSector/NovaSector "Percentage of issues still open")
-[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/NovaSector/NovaSector.svg)](https://isitmaintained.com/project/NovaSector/NovaSector "Average time to resolve an issue")
-![Coverage](https://img.shields.io/codecov/c/github/NovaSector/NovaSector)
+本仓库是“天关”的服务端源码，基于 [Nova Sector](https://github.com/NovaSector/NovaSector) 继续开发；Nova Sector 本身是 [/tg/station](https://github.com/tgstation/tgstation) 的下游分支，使用 BYOND 引擎运行。
 
-[![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
+请注意：本仓库继承自 Nova Sector，可能包含成人向内容，不适合 18 岁以下用户浏览或使用。
 
-| Website                 | Link                                                                                                                                   |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Git / GitHub cheatsheet | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
-| Guide to Modularization | [./modular_nova/readme.md](./modular_nova/readme.md)                                                                                   |
-| Guide to Mirroring      | [./modular_nova/mirroring_guide.md](./modular_nova/mirroring_guide.md)                                                                 |
-| Code                    | [https://github.com/NovaSector/NovaSector](https://github.com/NovaSector/NovaSector)                                                   |
-| Wiki                    | [https://wiki.novasector13.com](https://wiki.novasector13.com)                                                                         |
-| Codedocs                | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)                                                   |
-| Nova Sector's Discord   | [https://discord.gg/novasector](https://discord.gg/novasector)                                                                         |
-| Coderbus Discord        | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                                                               |
+Space Station 13 是一款回合制多人角色扮演游戏，背景设定在一座危险、混乱且经常失控的太空站中。玩家将在不同岗位、事件与突发状况中合作、对抗，并尝试活到回合结束。
 
-This is Nova Sector's downstream fork of /tg/station created in byond.
+## 项目关系
 
-**Please note that this repository contains sexually explicit content and is not suitable for those under the age of 18.**
+- 天关：本仓库，对 Nova Sector 进行下游修改与维护。
+- Nova Sector：/tg/station 的下游代码库，提供主要玩法、系统与 Nova 扩展内容。
+- /tg/station：SS13 社区的重要上游代码库之一。
 
-Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. Have fun, and survive!
+## 常用链接
 
-## Important note - TEST YOUR PULL REQUESTS
+| 内容             | 链接                                                                                     |
+| ---------------- | ---------------------------------------------------------------------------------------- |
+| Nova Sector 源码 | [https://github.com/NovaSector/NovaSector](https://github.com/NovaSector/NovaSector)     |
+| /tg/station 源码 | [https://github.com/tgstation/tgstation](https://github.com/tgstation/tgstation)         |
+| 天关模块化开发说明 | [./modular_tianguan/readme.md](./modular_tianguan/readme.md)                             |
+| 天关镜像与同步说明 | [./modular_tianguan/mirroring_guide.md](./modular_tianguan/mirroring_guide.md)           |
+| 下载说明         | [./.github/guides/DOWNLOADING.md](./.github/guides/DOWNLOADING.md)                       |
+| 开服说明         | [./.github/guides/RUNNING_A_SERVER.md](./.github/guides/RUNNING_A_SERVER.md)             |
+| 地图与远征       | [./.github/guides/MAPS_AND_AWAY_MISSIONS.md](./.github/guides/MAPS_AND_AWAY_MISSIONS.md) |
+| 构建工具说明     | [./tools/build/README.md](./tools/build/README.md)                                       |
 
-You are responsible for the testing of your content and providing proof of such in your pull request. You should not mark a pull request ready for review until you have actually tested it. If you require a separate client for testing, you can use a guest account by logging out of BYOND and connecting to your test server. Test merges are not for bug finding, they are for stress tests where local testing simply doesn't allow for this.
+## 开发说明
 
-## DEVELOPMENT
+如果你要向本仓库提交修改，请先在本地完成测试。不要在没有实际测试的情况下把改动标记为可合并状态。
 
-[Modularisation Guide](./modular_nova/readme.md)
+如果修改的是天关下游内容，优先遵循 [天关模块化开发说明](./modular_tianguan/readme.md)，把新增内容放在 `modular_tianguan/`；只有同步、修复或整理 Nova 上游内容时，才优先参考 `modular_nova/` 的约定。如果不得不修改核心代码，请尽量保持修改范围清晰，方便后续从 Nova 上游同步。
 
-## DOWNLOADING
+## 编译方法
 
-[Downloading](.github/guides/DOWNLOADING.md)
+在仓库根目录运行或双击 `BUILD.bat` 即可开始构建。构建过程通常需要 1 到 5 分钟。
 
-[Running on the server](.github/guides/RUNNING_A_SERVER.md)
+也可以运行 `bin/build.cmd` 进行构建。构建完成后，可以按照 [开服说明](./.github/guides/RUNNING_A_SERVER.md) 使用 DreamDaemon 启动生成的 `tgstation.dmb`。
 
-[Maps and Away Missions](.github/guides/MAPS_AND_AWAY_MISSIONS.md)
+不推荐直接使用 DreamMaker 打开工程并编译，这种方式可能导致资源缺失或构建错误，例如找不到 `tgui.bundle.js`。
 
-## Compilation
+更多构建方式可以参考 [构建工具说明](./tools/build/README.md)。
 
-Find `BUILD.bat` here in the root folder of tgstation, and double click it to initiate the build. It consists of multiple steps and might take around 1-5 minutes to compile.
+## 贡献指南
 
-**The long way**. Find `bin/build.cmd` in this folder, and double click it to initiate the build. It consists of multiple steps and might take around 1-5 minutes to compile. If it closes, it means it has finished its job. You can then [setup the server](.github/guides/RUNNING_A_SERVER.md) normally by opening `tgstation.dmb` in DreamDaemon.
+贡献流程和代码规范可以参考 [贡献者指南](./.github/CONTRIBUTING.md)。
 
-**Building tgstation in DreamMaker directly is deprecated and might produce errors**, such as `'tgui.bundle.js': cannot find file`.
+如果你是第一次搭建开发环境，也可以参考 /tg/station 的开发文档：
 
-**[How to compile in VSCode and other build options](tools/build/README.md).**
+- [tgstation Development Guide](https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide)
+- [tgstation HackMD 文档](https://hackmd.io/@tgstation)
 
-## Getting started
+## 许可证
 
-For contribution guidelines refer to the [Guides for Contributors](.github/CONTRIBUTING.md).
+2014 年 12 月 31 日 16:38 PST 之后的代码，以 [tgstation commit 333c566b88108de218d882840e61928a9b759d8f](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) 为分界，使用 [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html) 授权。
 
-For getting started (dev env, compilation) see the HackMD document [here](https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide).
+该提交之前的代码使用 [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html) 授权，工具目录除非其 README 另有说明，也遵循对应许可证。
 
-For overall design documentation see [HackMD](https://hackmd.io/@tgstation).
+更多信息请查看 `LICENSE` 与 `GPLv3.txt`。
 
-For lore, [see Common Core](https://github.com/tgstation/common_core).
+TGS DMAPI 作为子项目使用 MIT 许可证。详情见 [code/\_\_DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) 文件底部，以及 [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE)。
 
-## LICENSE
-
-All code after [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/12/31 at 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.html).
-
-All code before [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/12/31 at 4:38 PM PST](https://github.com/tgstation/tgstation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
-(Including tools unless their readme specifies otherwise.)
-
-See LICENSE and GPLv3.txt for more details.
-
-The TGS DMAPI is licensed as a subproject under the MIT license.
-
-See the footer of [code/\_\_DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) and [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) for the MIT license.
-
-All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
+除非另有说明，所有图标、音效等资源使用 [Creative Commons 3.0 BY-SA](https://creativecommons.org/licenses/by-sa/3.0/) 授权。
